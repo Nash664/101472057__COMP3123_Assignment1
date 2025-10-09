@@ -85,11 +85,7 @@ export const deleteEmployee = async (req, res) => {
     }
     const deleted = await Employee.findByIdAndDelete(eid);
     if (!deleted) return res.status(404).json({ status: false, message: "Employee not found" });
-
-    // Spec says 204 No Content for delete:
-    return res.status(204).send(); // <- empty body by design
-    // If your grader expects a JSON body instead, change to:
-    // return res.status(200).json({ message: "Employee deleted successfully." });
+    return res.status(204).send();
   } catch (err) {
     return res.status(500).json({ status: false, message: err.message });
   }

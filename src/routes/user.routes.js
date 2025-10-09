@@ -5,9 +5,6 @@ import { runValidation } from "../middleware/validate.js";
 
 const router = Router();
 
-/**
- * POST /api/v1/user/signup  -> 201
- */
 router.post(
   "/signup",
   [
@@ -19,10 +16,6 @@ router.post(
   signup
 );
 
-/**
- * POST /api/v1/user/login  -> 200
- * Accepts either {email, password} OR {username, password}
- */
 router.post(
   "/login",
   [

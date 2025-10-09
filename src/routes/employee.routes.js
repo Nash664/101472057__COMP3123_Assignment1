@@ -8,18 +8,12 @@ import {
   deleteEmployee
 } from "../controllers/employee.controller.js";
 import { runValidation } from "../middleware/validate.js";
-// import { auth } from "../middleware/auth.js"; // enable if you want JWT protection
 
 const router = Router();
 
-/**
- * GET /api/v1/emp/employees  -> 200
- */
 router.get("/employees", listEmployees);
 
-/**
- * POST /api/v1/emp/employees  -> 201
- */
+
 router.post(
   "/employees",
   [
@@ -35,9 +29,6 @@ router.post(
   createEmployee
 );
 
-/**
- * GET /api/v1/emp/employees/:eid  -> 200
- */
 router.get(
   "/employees/:eid",
   [param("eid").trim().notEmpty().withMessage("eid is required")],
@@ -45,9 +36,6 @@ router.get(
   getEmployeeById
 );
 
-/**
- * PUT /api/v1/emp/employees/:eid  -> 200
- */
 router.put(
   "/employees/:eid",
   [param("eid").trim().notEmpty().withMessage("eid is required")],
@@ -55,9 +43,7 @@ router.put(
   updateEmployee
 );
 
-/**
- * DELETE /api/v1/emp/employees?eid=xxx  -> 204
- */
+
 router.delete(
   "/employees",
   [query("eid").trim().notEmpty().withMessage("eid is required")],
